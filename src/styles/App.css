@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-size: 16px;
+    color: rgb(20, 70, 100);
+    background-color: bisque;
+
+}
+
+#root {
+    margin: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.App {
+    width: 1150px;
+    height: 100%;
+    display: flex;
+}
+
+h1, h3 {
+    color: rgb(20, 70, 100);
+    margin-top: 20px;
+    text-align: center;
+}
+
+.sidebar {
+    background-color: antiquewhite;
+    width: 20%;
+    border-right: 1px solid antiquewhite;
+    box-shadow: 3px 1px 10px antiquewhite;
+}
+
+.main {
+    width: 80%;
+}
+
+.form {
+    width: 80%;
+    padding: 12px;
+    text-align: center;
+    border: 2px solid rgb(20, 70, 100);
+    border-radius: 20%;
+    margin: 0 auto;
+    
+}
+
+.form * {
+    font-size: 14px;
+    border: 1px solid rgb(20, 70, 100);
+}
+
+.info {
+    text-align: center;
+    margin: 5px;
+    font-size: 18px;
+}
+
+.post {
+    border: 1px solid rgb(20, 70, 100);
+    margin: 5px;
+    border-radius: 6px;
+}
+
+.post div {
+    margin: 8px auto;
+    width: 90%;
+    line-height: 20px;
+}
+
+.link {
+    text-align: right;
+}
+
+.time {
+    font-weight: 800;
+    color: black;
+    padding-left: 40px;
+}
