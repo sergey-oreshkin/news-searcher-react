@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/news-searcher-react/static/css/main.8b061113.css",
+    "main.js": "/news-searcher-react/static/js/main.9197e0f2.js",
+    "index.html": "/news-searcher-react/index.html",
+    "main.8b061113.css.map": "/news-searcher-react/static/css/main.8b061113.css.map",
+    "main.9197e0f2.js.map": "/news-searcher-react/static/js/main.9197e0f2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8b061113.css",
+    "static/js/main.9197e0f2.js"
+  ]
+}
