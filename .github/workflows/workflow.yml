@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: action/checkout@v3
+        uses: action/checkout@v1
 
       - name: Install and build
         run: npm install && npm run build
