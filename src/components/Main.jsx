@@ -12,7 +12,7 @@ const Main = () => {
     async function fetchPosts(keywords, hours) {
         setFeed({info : 'Ищем...', posts : []});
         if (keywords === '' || keywords.length < 3) {
-            setFeed({ info : 'Ведите ключевые слова для поиска!', posts : []});
+            setFeed({ info : 'Введите ключевые слова для поиска!', posts : []});
             return;
         }
         if (hours < 1){
@@ -33,7 +33,7 @@ const Main = () => {
             if (response.ok){
                 const json = await response.json();
                 if (json.length === 0 || !Array.isArray(json)){
-                    setFeed({info : 'Извините! Ничего не нашлось', posts : []});
+                    setFeed({info : 'Извините! Ничего не нашлось.', posts : []});
                     return;
                 }
                 setFeed({
@@ -42,7 +42,11 @@ const Main = () => {
                 });
             }
         } catch (e){
-            setFeed({ info : 'Во время запроса произошла ошибка!', posts : []});
+            if(e.message === 'Failed to fetch'){
+                setFeed({ info : 'Сервер ничего не ответил!', posts : []});
+            } else {
+                setFeed({ info : 'Во время запроса произошла ошибка!', posts : []});
+            }
         }
     }
 
