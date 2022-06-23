@@ -31,7 +31,7 @@ const Form = ({fetchPosts}) => {
             /> 
             часов.<br/>
 
-            <Button onClick = {submit}>Поиск</Button>
+            <Button visible = {true} onClick = {submit}>Поиск</Button>
         </form>
     );
 }

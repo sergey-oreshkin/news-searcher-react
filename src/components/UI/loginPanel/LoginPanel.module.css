@@ -1,0 +1,12 @@
+.panel{
+    display: none;
+}
+
+.panel.active{
+    display:block
+}
+
+.panel span {
+    color:black;
+    font-weight: 700;
+}
