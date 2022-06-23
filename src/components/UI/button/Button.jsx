@@ -1,9 +1,16 @@
 import React from 'react';
 import cl from './Button.module.css';
 
-const Button = ({children, ...props}) => {
+const Button = ({ visible, children, ...props }) => {
+
+    const classes = [cl.button];
+
+    if (visible) {
+        classes.push(cl.active);
+    }
+
     return (
-        <button {...props} className={cl.button}>
+        <button {...props} className={classes.join(' ')}>
             {children}
         </button>
     );

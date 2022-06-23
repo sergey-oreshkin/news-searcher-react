@@ -15,6 +15,12 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  margin: 8px;
+  display: none;
+}
+
+.button.active{
+  display: inline;
 }
 
 .button:hover {
