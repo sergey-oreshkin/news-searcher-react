@@ -1,14 +1,11 @@
 import React from 'react';
-import Main from './components/Main';
-import Sidebar from './components/Sidebar';
-import './styles/App.css';
+import './App.css';
+import AppRouter from './components/AppRouter';
 
-function App() {
-  
+const App = () => {
   return (
-    <div className="App">
-      <Sidebar/>
-      <Main/>
+    <div>
+      <AppRouter />
     </div>
   );
 }

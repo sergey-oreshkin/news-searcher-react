@@ -1,0 +1,19 @@
+.sidebar {
+    background-color: antiquewhite;
+    width: 20%;
+    border-right: 1px solid antiquewhite;
+    box-shadow: 3px 1px 10px antiquewhite;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px;
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(20, 70, 100);
+    background-color: aqua;
+}

@@ -1,18 +1,12 @@
 import React from 'react';
 import cl from './Button.module.css';
 
-const Button = ({ visible, children, ...props }) => {
-
-    const classes = [cl.button];
-
-    if (visible) {
-        classes.push(cl.active);
-    }
-
-    return (
-        <button {...props} className={classes.join(' ')}>
+const Button = ({children, ...props}) => {
+    return ( 
+        <button {...props} className={cl.button}>
             {children}
         </button>
-    );
+     );
 }
+ 
 export default Button;

@@ -1,40 +1,39 @@
 .button {
-  background-color: #fbeee0;
-  border: 2px solid rgb(20, 70, 100);
-  border-radius: 30px;
-  box-shadow: rgb(20, 70, 100) 4px 4px 5px 0;
-  color: rgb(20, 70, 100);
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 600;
-  font-size: 16px;
-  padding: 0 12px;
-  line-height: 30px;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  margin: 8px;
-  display: none;
-}
-
-.button.active{
-  display: inline;
-}
-
-.button:hover {
-  background-color: #fff;
-}
-
-.button:active {
-  box-shadow: rgb(20, 70, 100) 2px 2px 0 0;
-  transform: translate(2px, 2px);
-}
-
-@media (min-width: 768px) {
-  .button {
-    min-width: 120px;
-    padding: 0 25px;
+    background-color: #fbeee0;
+    border: 2px solid rgb(20, 70, 100);
+    border-radius: 30px;
+    box-shadow: rgb(20, 70, 100) 4px 4px 5px 0;
+    color: rgb(20, 70, 100);
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 0 12px;
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin: 8px;
   }
-}
+  
+  .button.active{
+    display: inline;
+  }
+  
+  .button:hover {
+    background-color: #fff;
+  }
+  
+  .button:active {
+    box-shadow: rgb(20, 70, 100) 2px 2px 0 0;
+    transform: translate(2px, 2px);
+  }
+  
+  @media (min-width: 768px) {
+    .button {
+      min-width: 120px;
+      padding: 0 25px;
+    }
+  }

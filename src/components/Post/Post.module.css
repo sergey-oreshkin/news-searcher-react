@@ -1,0 +1,32 @@
+.post {
+    border: 1px solid rgb(20, 70, 100);
+    margin: 5px 15px;
+    border-radius: 6px;
+}
+
+.post div {
+    margin: 8px auto;
+    width: 90%;
+    line-height: 20px;
+}
+
+.link {
+    text-align: right;
+    margin: 5px;
+    font-weight: bold;
+}
+.link a{
+    padding: 3px;
+    text-decoration: none;
+    border: 2px solid;
+    border: 2px solid rgb(20, 70, 100);
+    border-radius: 10px;
+    box-shadow: rgb(20, 70, 100) 4px 4px 5px 0;
+    color: rgb(20, 70, 100);
+}
+
+.time {
+    font-weight: 800;
+    padding-left: 20px;
+    color: black;
+}

@@ -5,3 +5,6 @@
 .formLogin.button{
     margin: 4px 6px;
 }
+.formLogin div{
+    color:red;
+}
