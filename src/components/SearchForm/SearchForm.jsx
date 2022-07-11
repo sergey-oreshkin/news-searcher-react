@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Input from '../UI/Input/Input';
-import Button from '../UI/Button/Button';
+
+import Input from '../UI/input/Input';
+import Button from '../UI/button/Button';
 import cl from './SearchForm.module.css';
-import fetchNews from '../../store/API/NewsAPI';
+import fetchNews from '../../store/API/NewsApi';
 
 const SearchForm = () => {
     const [keywords, setKeywords] = useState('');

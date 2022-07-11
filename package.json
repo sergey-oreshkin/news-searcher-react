@@ -1,5 +1,6 @@
 {
-  "name": "refactoring",
+  "name": "news-searcher-react",
+  "homepage": "https://sergey-oreshkin.github.io/news-searcher-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

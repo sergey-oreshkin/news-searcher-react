@@ -13,9 +13,9 @@ const Post = ({post}) => {
     return (
         <div className={cl.post}>
             <h3>{post.title}</h3>
-            <div className="time">{hours}</div>
-            <div className="desc">{post.desc}</div>
-            <div className="link">
+            <div className={cl.time}>{hours}</div>
+            <div >{post.desc}</div>
+            <div className={cl.link}>
                 <a href={post.link}>Читать далее..</a>
             </div>
         </div>

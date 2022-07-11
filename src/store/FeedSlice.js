@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import fetchNews from "./API/NewsAPI";
+import fetchNews from "./API/NewsApi";
+
+let benchmark = 0;
 
 export const feedSlice = createSlice({
     name: 'feed',
@@ -11,11 +13,11 @@ export const feedSlice = createSlice({
     extraReducers: {
         [fetchNews.pending]: (state) => {
             state.loading = true;
-            state.benchmark = Date.now();
+            benchmark = Date.now();
         },
         [fetchNews.fulfilled]: (state, { payload }) => {
             state.loading = false;
-            const requestTime = Date.now() - state.benchmark;
+            const requestTime = Date.now() - benchmark;
             state.posts = payload;
             state.info = `Нашлось ${payload.length} новостей за ${requestTime} мс`
         },
@@ -28,7 +30,5 @@ export const feedSlice = createSlice({
         }
     }
 });
-
-//export {fetchNews} = feedSlice.actions;
 
 export default feedSlice.reducer

@@ -1,0 +1,10 @@
+.formLogin{
+    margin: 0 auto;
+    width: 320px;
+}
+.formLogin.button{
+    margin: 4px 6px;
+}
+.formLogin div{
+    color:red;
+}

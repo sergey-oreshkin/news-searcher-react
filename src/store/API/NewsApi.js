@@ -5,7 +5,7 @@ import baseUrl from './APISetup';
 const endpoint = baseUrl + '/';
 
 const config = {
-    headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}
+    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
 };
 
 const fetchNews = createAsyncThunk(
