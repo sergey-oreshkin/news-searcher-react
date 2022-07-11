@@ -1,0 +1,21 @@
+.post {
+    border: 1px solid rgb(20, 70, 100);
+    margin: 5px 15px;
+    border-radius: 6px;
+}
+
+.post div {
+    margin: 8px auto;
+    width: 90%;
+    line-height: 20px;
+}
+
+.link {
+    text-align: right;
+}
+
+.time {
+    font-weight: 800;
+    color: black;
+    padding-left: 40px;
+}
