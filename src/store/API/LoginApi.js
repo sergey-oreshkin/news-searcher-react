@@ -24,9 +24,9 @@ const requestLogin = createAsyncThunk(
                 if (err.response.status !== 0) {
                     return rejectWithValue({ data: err.response.data, status: err.response.status, reg: data.reg });
                 }
-                return rejectWithValue('Сервер не доступен!');
+                return rejectWithValue({message: 'Сервер не доступен!'});
             }
-            return rejectWithValue('Неизвестная ошибка' + err);
+            return rejectWithValue({message:'Неизвестная ошибка' + err});
         }
     }
 );
