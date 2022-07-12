@@ -22,11 +22,16 @@ export const feedSlice = createSlice({
             state.info = `Нашлось ${payload.length} новостей за ${requestTime} мс`
         },
         [fetchNews.rejected]: (state, { payload }) => {
+            const { data, message, status } = payload;
             state.loading = false;
             state.posts = [];
-            const status = payload.status || 'Неизвестный статус';
-            const msg = payload.message || 'Без сообщения';
-            state.info = 'При запросе произошла ошибка :' + msg + ' Статус: ' + status;
+            if (message) {
+                state.info = 'При запросе произошла ошибка :' + message;
+            } else {
+                const st = status || 'Неизвестный статус';
+                const msg = data.data.message || 'Без сообщения';
+                state.info = 'При запросе произошла ошибка : ' + msg + ' Статус: ' + status;
+            }
         }
     }
 });

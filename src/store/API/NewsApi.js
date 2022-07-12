@@ -21,11 +21,11 @@ const fetchNews = createAsyncThunk(
         } catch (err) {
             if (err.isAxiosError) {
                 if (err.response.data) {
-                    return rejectWithValue(err.response.data);
+                    return rejectWithValue({ data: err.response.data, status: err.response.status });
                 }
-                return rejectWithValue('Сервер не доступен!');
+                return rejectWithValue({ message: 'Сервер не доступен!' });
             }
-            return rejectWithValue('Неизвестная ошибка' + err);
+            return rejectWithValue({ message: 'Неизвестная ошибка' + err });
         }
     }
 );

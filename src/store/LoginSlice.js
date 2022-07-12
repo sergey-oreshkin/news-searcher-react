@@ -37,14 +37,13 @@ const LoginSlice = createSlice({
                 } else {
                     state.err('Непонятный ответ сервера');
                 }
-
             }
             state.loading = false;
         },
         [requestLogin.rejected]: (state, { payload }) => {
-            const { data, status, reg } = payload;
-            if (!status) {
-                state.err = payload;
+            const { message, data, status, reg } = payload;
+            if (message) {
+                state.err = message;
             } else if (data && data.message) {
                 state.err = data.message
             } else if (status === 403) {
