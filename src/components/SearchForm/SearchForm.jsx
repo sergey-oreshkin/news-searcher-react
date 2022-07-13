@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import Input from '../UI/input/Input';
-import Button from '../UI/button/Button';
+import Input from '../UI/Input/Input';
+import Button from '../UI/Button/Button';
 import cl from './SearchForm.module.css';
 import fetchNews from '../../store/API/NewsApi';
 
