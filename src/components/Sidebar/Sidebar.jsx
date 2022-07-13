@@ -6,7 +6,7 @@ import Button from '../UI/Button/Button'
 import cl from './Sidebar.module.css';
 import { publicRoutes, authRoutes } from '../../router';
 import { useDispatch, useSelector } from 'react-redux';
-import Modal from '../UI/modal/Modal';
+import Modal from '../UI/Modal/Modal';
 import LoginForm from '../LoginForm/LoginForm';
 import { toggleModal, logout } from '../../store/LoginSlice';
 
