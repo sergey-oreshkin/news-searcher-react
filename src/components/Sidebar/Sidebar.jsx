@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Info from '../Info/Info';
-import Button from '../UI/button/Button'
+import Button from '../UI/Button/Button'
 import cl from './Sidebar.module.css';
 import { publicRoutes, authRoutes } from '../../router';
 import { useDispatch, useSelector } from 'react-redux';

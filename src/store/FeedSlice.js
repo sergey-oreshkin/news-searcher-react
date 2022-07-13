@@ -29,8 +29,8 @@ export const feedSlice = createSlice({
                 state.info = 'При запросе произошла ошибка :' + message;
             } else {
                 const st = status || 'Неизвестный статус';
-                const msg = data.data.message || 'Без сообщения';
-                state.info = 'При запросе произошла ошибка : ' + msg + ' Статус: ' + status;
+                const msg = data?.data?.message || 'Без сообщения';
+                state.info = 'При запросе произошла ошибка : ' + msg + ' Статус: ' + st;
             }
         }
     }

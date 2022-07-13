@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import requestLogin from '../../store/API/LoginApi';
 import Info from '../Info/Info';
-import Button from '../UI/button/Button';
-import Input from '../UI/input/Input';
+import Button from '../UI/Button/Button';
+import Input from '../UI/Input/Input';
 import cl from './LoginForm.module.css';
 
 const LoginForm = () => {

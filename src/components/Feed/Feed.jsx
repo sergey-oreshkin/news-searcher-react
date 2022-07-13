@@ -1,3 +1,4 @@
+import { nanoid } from '@reduxjs/toolkit';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
@@ -8,7 +9,7 @@ const Feed = () => {
 
     return (
         <div>
-            {posts.map(post => <Post key = {post.title} post={post} />)}
+            {posts.map(post => <Post key={nanoid()} post={post} />)}
         </div>
     );
 }

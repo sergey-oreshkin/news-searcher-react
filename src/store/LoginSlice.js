@@ -7,7 +7,10 @@ const LoginSlice = createSlice({
     name: 'login',
     initialState: initializer(),
     reducers: {
-        toggleModal: state => { state.showModal = !state.showModal },
+        toggleModal: state => {
+            state.showModal = !state.showModal;
+            state.err = '';
+        },
         logout: state => {
             const storage = window.localStorage;
             storage.clear();
