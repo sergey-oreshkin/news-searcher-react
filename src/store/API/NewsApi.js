@@ -1,17 +1,29 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import {storageKeys} from './APISetup';
 import baseUrl from './APISetup';
-
-const endpoint = baseUrl + '/';
-
-const config = {
-    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
-};
 
 const fetchNews = createAsyncThunk(
     'post/getNews',
     async (data, { rejectWithValue }) => {
         try {
+            const token = window.localStorage.getItem(storageKeys.tokenKey);
+            let endpoint = baseUrl + '/';
+            let config = {
+                headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+            };
+
+            if (token) {
+                endpoint+= 'auth';
+                config = {
+                    headers: { 
+                        'Accept': 'application/json', 
+                        'Content-Type': 'application/json',
+                        'Authorization': token
+                     }
+                }
+            };
+            console.log(endpoint);
             const response = await axios.post(
                 endpoint,
                 JSON.stringify(data),

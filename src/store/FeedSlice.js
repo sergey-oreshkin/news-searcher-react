@@ -26,7 +26,7 @@ export const feedSlice = createSlice({
             state.loading = false;
             state.posts = [];
             if (message) {
-                state.info = 'При запросе произошла ошибка :' + message;
+                state.info = 'При запросе произошла ошибка : ' + message;
             } else {
                 const st = status || 'Неизвестный статус';
                 const msg = data?.data?.message || 'Без сообщения';

@@ -31,8 +31,8 @@ const LoginSlice = createSlice({
             } else {
                 if (data.token && data.username) {
                     const storage = window.localStorage;
-                    storage.setItem(storageKeys.token, data.token);
-                    storage.setItem(storageKeys.username, data.username);
+                    storage.setItem(storageKeys.tokenKey, data.token);
+                    storage.setItem(storageKeys.usernameKey, data.username);
                     state.auth = true;
                     state.username = data.username;
                     state.buttonText = 'Выход';
