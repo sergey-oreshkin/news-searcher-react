@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import fetchNews from "./API/NewsApi";
+import fetchNews from "./API/FeedApi";
 
 let benchmark = 0;
 
@@ -22,16 +22,12 @@ export const feedSlice = createSlice({
             state.info = `Нашлось ${payload.length} новостей за ${requestTime} мс`
         },
         [fetchNews.rejected]: (state, { payload }) => {
-            const { data, message, status } = payload;
+            const { data, status } = payload;
             state.loading = false;
             state.posts = [];
-            if (message) {
-                state.info = 'При запросе произошла ошибка : ' + message;
-            } else {
-                const st = status || 'Неизвестный статус';
-                const msg = data?.data?.message || 'Без сообщения';
-                state.info = 'При запросе произошла ошибка : ' + msg + ' Статус: ' + st;
-            }
+            const st = status || 'Неизвестный статус';
+            const msg = data.error || 'Без сообщения';
+            state.info = 'При запросе произошла ошибка : ' + msg + ' Статус: ' + st;
         }
     }
 });

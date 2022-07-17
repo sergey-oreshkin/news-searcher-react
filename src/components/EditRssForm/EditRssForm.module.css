@@ -3,12 +3,24 @@
     padding: 12px;
     text-align: center;
     border: 2px solid rgb(20, 70, 100);
-    border-radius: 20%;
     margin: 0 auto;
 
 }
 
-.row span{
+.row {
+    text-align: left;
+    padding: 10px;
+    font-size: 20px;
     border: 1px solid rgb(20, 70, 100);
+}
+
+.row div {
+    padding: 4px;
+}
+.row span{
     background-color: #fff;
+
+}
+.row input {
+    font-size: 20px;
 }
