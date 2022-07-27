@@ -11,7 +11,7 @@ const MainPage = () => {
     const loading = useSelector(state => state.feed.loading);
     return (
         <div className='page'>
-            <Header />
+            <Header>Поисковик новостей</Header>
             <SearchForm />
             <Info> {loading ? 'Загружаем' : msg}</Info>
             <Feed />

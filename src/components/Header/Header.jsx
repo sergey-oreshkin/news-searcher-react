@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Header = () => {
+const Header = ({children}) => {
     return ( 
         <header>
-            <h1>Поисковик новостей</h1>
+            <h1>{children}</h1>
         </header>
      );
 }

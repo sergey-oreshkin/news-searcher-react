@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import Input from '../UI/Input/Input';
 import Button from '../UI/Button/Button';
 import cl from './SearchForm.module.css';
-import fetchNews from '../../store/API/NewsApi';
+import fetchNews from '../../store/API/FeedApi';
 
 const SearchForm = () => {
     const [keywords, setKeywords] = useState('');

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import initializer from "./API/LoginInitializer";
-import requestLogin from "./API/LoginApi";
+import requestLogin, { checkToken } from "./API/LoginApi";
 import { storageKeys } from "./API/APISetup";
 
 const LoginSlice = createSlice({
@@ -31,8 +31,9 @@ const LoginSlice = createSlice({
             } else {
                 if (data.token && data.username) {
                     const storage = window.localStorage;
-                    storage.setItem(storageKeys.token, data.token);
-                    storage.setItem(storageKeys.username, data.username);
+                    storage.setItem(storageKeys.tokenKey, data.token);
+                    storage.setItem(storageKeys.usernameKey, data.username);
+                    storage.setItem(storageKeys.refreshKey, data.refresh);
                     state.auth = true;
                     state.username = data.username;
                     state.buttonText = 'Выход';
@@ -44,19 +45,27 @@ const LoginSlice = createSlice({
             state.loading = false;
         },
         [requestLogin.rejected]: (state, { payload }) => {
-            const { message, data, status, reg } = payload;
-            if (message) {
-                state.err = message;
-            } else if (data && data.message) {
-                state.err = data.message
-            } else if (status === 403) {
+            const { data, status, reg } = payload;
+            if (status === 403 || status === 401) {
                 state.err = 'Неверные логин или пароль';
             } else if (reg && status === 400) {
                 state.err = 'Похоже имя уже зянято';
+            } else if (data && data.error) {
+                state.err = data.error;
             } else {
                 state.err = 'Неверные данные';
             }
             state.loading = false;
+        },
+
+        [checkToken.fulfilled]: (state, { payload }) => {
+            const storage = window.localStorage;
+            if (storage.getItem(storageKeys.tokenKey)) {
+                state.auth = true;
+                state.username = storage.getItem(storageKeys.usernameKey);
+                state.buttonText = 'Выход';
+                state.showModal = false;
+            }
         }
     }
 });

@@ -5,7 +5,7 @@ import RssEditor from '../components/RssEditor/RssEditor';
 const EditPage = () => {
     return (
         <div className='page'>
-            <Header />
+            <Header>Редактор RSS</Header>
             <RssEditor />
         </div>
     );

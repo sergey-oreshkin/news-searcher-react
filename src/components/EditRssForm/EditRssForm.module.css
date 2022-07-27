@@ -1,0 +1,26 @@
+.form {
+    width: 80%;
+    padding: 12px;
+    text-align: center;
+    border: 2px solid rgb(20, 70, 100);
+    margin: 0 auto;
+
+}
+
+.row {
+    text-align: left;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid rgb(20, 70, 100);
+}
+
+.row div {
+    padding: 4px;
+}
+.whiteBg{
+    background-color: #fff;
+
+}
+.row input {
+    font-size: 20px;
+}
