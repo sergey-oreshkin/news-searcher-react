@@ -46,7 +46,7 @@ const LoginSlice = createSlice({
         },
         [requestLogin.rejected]: (state, { payload }) => {
             const { data, status, reg } = payload;
-            if (status === 403) {
+            if (status === 403 || status === 401) {
                 state.err = 'Неверные логин или пароль';
             } else if (reg && status === 400) {
                 state.err = 'Похоже имя уже зянято';
@@ -57,6 +57,7 @@ const LoginSlice = createSlice({
             }
             state.loading = false;
         },
+
         [checkToken.fulfilled]: (state, { payload }) => {
             const storage = window.localStorage;
             if (storage.getItem(storageKeys.tokenKey)) {

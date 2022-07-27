@@ -17,7 +17,7 @@ $axios.interceptors.response.use(config => {
 }, async (error) => {
     const originalConfig = error.config;
     const refresh = storage.getItem(storageKeys.refreshKey);
-    if (refresh && error.response.status === 403 && !error.config.retry) {
+    if (refresh && (error.response.status === 403 || error.response.status === 401) && !error.config.retry) {
         error.config.retry = true;
         try {
             const endpoint = baseUrl + '/refresh';
@@ -38,7 +38,7 @@ $axios.interceptors.response.use(config => {
             throw err;
         }
     }
-    return error;
+    throw error;
 }
 );
 

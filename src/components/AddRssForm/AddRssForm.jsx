@@ -6,7 +6,7 @@ import Info from '../Info/Info';
 import Input from '../UI/Input/Input';
 import Button from '../UI/Button/Button';
 import cl from './AddRssForm.module.css';
-import { updateAndGetRss } from '../../store/API/RssApi';
+import { addAndGetRss } from '../../store/API/RssApi';
 
 const AddRssForm = ({ info }) => {
 
@@ -15,7 +15,7 @@ const AddRssForm = ({ info }) => {
     const dispather = useDispatch();
 
     const submit = () => {
-        dispather(updateAndGetRss({ title: title, link: link }));
+        dispather(addAndGetRss({ title: title, link: link }));
         setLink('');
         setTitle('');
     }
