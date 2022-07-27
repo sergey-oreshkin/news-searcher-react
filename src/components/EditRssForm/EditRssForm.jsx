@@ -13,8 +13,8 @@ const EditRssForm = ({ info, sources }) => {
     const dispatcher = useDispatch();
 
     const submitUpdate = (key) => {
-        sources[key].isActive = !sources[key].isActive;
-        const data = sources[key];
+        const data = { ...sources[key] };
+        data.isActive = !data.isActive;
         dispatcher(updateAndGetRss(data));
     }
 
@@ -31,11 +31,11 @@ const EditRssForm = ({ info, sources }) => {
 
                     <div>Ссылка: <span className={cl.whiteBg}>{source.link}</span></div>
 
-                    <Button style={{ color: 'green' }} onClick = {(key)=>submitUpdate(key)}>
+                    <Button style={{ color: 'green' }} onClick={(e) => submitUpdate(index, e)}>
                         {source.isActive ? <span>Деактивировать</span> : <span>Активировать</span>}
                     </Button>
 
-                    <Button style={{ color: 'red' }} onClick = {(key)=>submitDelete(key)}>
+                    <Button style={{ color: 'red' }} onClick={(e) => submitDelete(index, e)}>
                         Удалить
                     </Button>
                 </div>

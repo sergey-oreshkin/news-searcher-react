@@ -15,14 +15,14 @@ const RssSlice = createSlice({
             }
         },
         [getRss.rejected]: (state, { payload }) => {
-            const { data, message, status } = payload;
+            const { data, message: error, status } = payload;
             state.sources = [];
-            if (message) {
-                state.info = 'При запросе произошла ошибка : ' + message;
+            if (error) {
+                state.editInfo = 'При запросе произошла ошибка : ' + error;
             } else {
                 const st = status || 'Неизвестный статус';
                 const msg = data.data || 'Без сообщения';
-                state.info = 'При запросе произошла ошибка : ' + msg + ' Статус: ' + st;
+                state.editInfo = 'При запросе произошла ошибка : ' + msg + ' Статус: ' + st;
             }
         },
         [addAndGetRss.fulfilled]: (state, { payload }) => {
@@ -34,9 +34,13 @@ const RssSlice = createSlice({
             }
         },
         [addAndGetRss.rejected]: (state, { payload }) => {
+            debugger
+
             if (payload && payload.status === 400) {
                 const msg = payload.data ? payload.data.error : '';
                 state.addInfo = 'Не удалось добавить ' + msg;
+            } else {
+                state.addInfo = payload.error;
             }
         },
         [updateAndGetRss.fulfilled]: (state, { payload }) => {
@@ -51,6 +55,8 @@ const RssSlice = createSlice({
             if (payload && payload.status === 400) {
                 const msg = payload.data ? payload.data.error : '';
                 state.addInfo = 'Не удалось изменить ' + msg;
+            } else {
+                state.addInfo = payload.error;
             }
         },
         [deleteAndGetRss.fulfilled]: (state, { payload }) => {
@@ -65,6 +71,8 @@ const RssSlice = createSlice({
             if (payload && payload.status === 400) {
                 const msg = payload.data ? payload.data.error : '';
                 state.addInfo = 'Не удалось удалить ' + msg;
+            } else {
+                state.addInfo = payload.error;
             }
         }
     }

@@ -17,9 +17,9 @@ export const addAndGetRss = createAsyncThunk(
             const config = {
                 headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
             };
-            
+
             let resp = await $axios.post(endpoint, data, config);
-            
+
             if (resp.code) {
                 throw resp;
             }
@@ -29,24 +29,24 @@ export const addAndGetRss = createAsyncThunk(
                 if (err.response.status !== 0) {
                     return rejectWithValue({ data: err.response.data, status: err.response.status });
                 }
-                return rejectWithValue({ message: 'Сервер не доступен!' });
+                return rejectWithValue({ error: 'Сервер не доступен!' });
             }
-            return rejectWithValue({ message: 'Неизвестная ошибка ' + err });
+            return rejectWithValue({ error: 'Неизвестная ошибка ' + err });
         }
     }
 );
 
 export const updateAndGetRss = createAsyncThunk(
-    'post/postRss',
+    'patch/patchRss',
     async (data, { rejectWithValue }) => {
         try {
             const endpoint = baseUrl + '/rss';
             const config = {
                 headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
             };
-            
+
             let resp = await $axios.patch(endpoint, data, config);
-            
+
             if (resp.code) {
                 throw resp;
             }
@@ -56,24 +56,23 @@ export const updateAndGetRss = createAsyncThunk(
                 if (err.response.status !== 0) {
                     return rejectWithValue({ data: err.response.data, status: err.response.status });
                 }
-                return rejectWithValue({ message: 'Сервер не доступен!' });
+                return rejectWithValue({ error: 'Сервер не доступен!' });
             }
-            return rejectWithValue({ message: 'Неизвестная ошибка ' + err });
+            return rejectWithValue({ error: 'Неизвестная ошибка ' + err });
         }
     }
 );
 
 export const deleteAndGetRss = createAsyncThunk(
-    'post/postRss',
+    'delete/deleteRss',
     async (data, { rejectWithValue }) => {
         try {
-            const endpoint = baseUrl + '/rss';
+            const endpoint = baseUrl + '/rss/' + data.title;
             const config = {
                 headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
             };
-            
-            let resp = await $axios.delete(endpoint, data, config);
-            
+            let resp = await $axios.delete(endpoint, config);
+
             if (resp.code) {
                 throw resp;
             }
@@ -83,9 +82,9 @@ export const deleteAndGetRss = createAsyncThunk(
                 if (err.response.status !== 0) {
                     return rejectWithValue({ data: err.response.data, status: err.response.status });
                 }
-                return rejectWithValue({ message: 'Сервер не доступен!' });
+                return rejectWithValue({ error: 'Сервер не доступен!' });
             }
-            return rejectWithValue({ message: 'Неизвестная ошибка ' + err });
+            return rejectWithValue({ error: 'Неизвестная ошибка ' + err });
         }
     }
 );
@@ -103,9 +102,9 @@ async function refreshRss(rejectWithValue) {
             if (err.response.status !== 0) {
                 return rejectWithValue({ data: err.response.data, status: err.response.status });
             }
-            return rejectWithValue({ message: 'Сервер не доступен!' });
+            return rejectWithValue({ error: 'Сервер не доступен!' });
         }
-        return rejectWithValue({ message: 'Неизвестная ошибка ' + err });
+        return rejectWithValue({ error: 'Неизвестная ошибка ' + err });
     }
 }
 
