@@ -6,7 +6,7 @@ import { FormType, setModalContent, setShowModal } from "../appSlice";
 import { ApiError, Credentials, LoginResponse } from "../loginSlice";
 
 
-export const register = createAsyncThunk<number, Credentials, {rejectValue: ApiError}>(
+export const register = createAsyncThunk<number, Credentials, { rejectValue: ApiError }>(
     'post/register',
     async (credentials: Credentials, { rejectWithValue, dispatch }) => {
         try {
@@ -16,7 +16,7 @@ export const register = createAsyncThunk<number, Credentials, {rejectValue: ApiE
         } catch (err) {
             if (axios.isAxiosError(err)) {
                 if (err.response) {
-                    return rejectWithValue({ data: err.response?.data, status: err.response?.status })
+                    return rejectWithValue({ data: { error: err.message } })
                 }
                 return rejectWithValue({ data: { error: 'Сервер не доступен!' } });
             }
@@ -25,7 +25,7 @@ export const register = createAsyncThunk<number, Credentials, {rejectValue: ApiE
     }
 );
 
-export const login = createAsyncThunk<LoginResponse, Credentials, {rejectValue: ApiError}>(
+export const login = createAsyncThunk<LoginResponse, Credentials, { rejectValue: ApiError }>(
     'post/login',
     async (credentials: Credentials, { rejectWithValue, dispatch }) => {
         try {
@@ -35,7 +35,25 @@ export const login = createAsyncThunk<LoginResponse, Credentials, {rejectValue: 
         } catch (err) {
             if (axios.isAxiosError(err)) {
                 if (err.response) {
-                    return rejectWithValue({ data: err.response?.data, status: err.response?.status })
+                    return rejectWithValue({ data: { error: err.message } })
+                }
+                return rejectWithValue({ data: { error: 'Сервер не доступен!' } });
+            }
+            return rejectWithValue({ data: { error: 'Неизвестная ошибка ' + err } });
+        }
+    }
+);
+
+export const check = createAsyncThunk<number, void, { rejectValue: ApiError }>(
+    'get/check',
+    async (data, { rejectWithValue }) => {
+        try {
+            const response = await apiClient.get('/check');
+            return response.status;
+        } catch (err) {
+            if (axios.isAxiosError(err)) {
+                if (err.response) {
+                    return rejectWithValue({ data: { error: err.message } })
                 }
                 return rejectWithValue({ data: { error: 'Сервер не доступен!' } });
             }

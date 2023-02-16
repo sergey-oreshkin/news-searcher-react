@@ -7,6 +7,8 @@ type SearchState = {
     message: string;
 }
 
+let bench = 0;
+
 const initialState: SearchState = { news: [], message: '' }
 
 const searchSlice = createSlice({
@@ -18,9 +20,17 @@ const searchSlice = createSlice({
         }
     },
     extraReducers: (builder) => {
+        builder.addCase(search.pending, (state: SearchState) => {
+            state.message = 'Ищем...';
+            bench = Date.now();
+        });
+
         builder.addCase(search.fulfilled, (state: SearchState, { payload }: PayloadAction<Post[]>) => {
             state.news = payload;
+            const requestTime = Date.now() - bench;
+            state.message = `Нашлось ${payload.length} новостей за ${requestTime} мс`;
         });
+
         builder.addCase(search.rejected, (state: SearchState, { payload }: PayloadAction<ApiError | undefined>) => {
             console.log(payload?.data.error);
 

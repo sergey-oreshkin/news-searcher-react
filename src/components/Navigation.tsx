@@ -26,7 +26,7 @@ const Navigation = () => {
                 state.login.login
                     ?
                     <div className='my-auto flex flex-row'>
-                        <div className='my-auto'>{'Привет, ' + state.login.username}</div>
+                        <div className='my-auto p-2 rounded-md bg-slate-200'>{'Привет, ' + state.login.username}</div>
                         <Button text={LOGOUT_BUTTON_TEXT} onClick={() => clickHandler(FormType.LOGOUT)} />
                     </div>
                     :

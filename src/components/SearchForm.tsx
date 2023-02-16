@@ -36,7 +36,9 @@ const SearchForm = () => {
                 <input className='mx-2 px-2 w-16 border-b-2' type='number' value={hours} onChange={changeHandler} />
                 часов
             </label>
-            <Button text='Найти' onClick={findHandler} />
+            <div>
+                <Button text='Найти' onClick={findHandler} />
+            </div>
         </div>
     );
 }

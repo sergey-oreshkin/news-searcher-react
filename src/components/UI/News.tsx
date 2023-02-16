@@ -20,7 +20,7 @@ const News = ({ title, desc, date, link }: PostProps) => {
 
     return (
         <div className='m-4 p-4 border-b-2'>
-            <h3 className='text-center mb-2'>{title}</h3>
+            <h3 className='text-center mb-2 font-bold'>{title}</h3>
             <div className='text-sm'>{desc}</div>
             <div className='flex justify-around mt-3'>
                 <div>{dateString}</div>
