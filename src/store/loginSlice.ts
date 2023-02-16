@@ -14,11 +14,13 @@ const loginSlice = createSlice({
     name: 'login',
     initialState,
     reducers: {
-        setLogin: (state, { payload }: PayloadAction<boolean>) => {
-            state.login = payload;
+        logout: (state) => {
+            state.login = false;
+            state.username = '';
+            window.localStorage.clear();
         },
-        setMessage: (state, { payload }: PayloadAction<string>) => {
-            state.message = payload;
+        clearMessage: (state) => {
+            state.message = '';
         }
     },
     extraReducers: (builder) => {
@@ -29,9 +31,7 @@ const loginSlice = createSlice({
         builder.addCase(register.rejected, (state: LoginState, { payload }: PayloadAction<ApiError | undefined>) => {
             state.message = payload?.data.error || '';
         });
-
-        builder.addCase(register.pending, (state)=>{state.message=''});
-
+        
         builder.addCase(login.fulfilled, (state: LoginState, { payload }: PayloadAction<LoginResponse>) => {
             state.username = payload.username;
             state.login = true;
@@ -43,13 +43,10 @@ const loginSlice = createSlice({
         builder.addCase(login.rejected, (state: LoginState, { payload }: PayloadAction<ApiError | undefined>) => {
             state.message = payload?.data.error || '';
         });
-
-        builder.addCase(login.pending, (state)=>{state.message=''});
-
     }
 });
 
-export const { setLogin, setMessage } = loginSlice.actions;
+export const { logout, clearMessage } = loginSlice.actions;
 
 export type Credentials = {
     username: string;

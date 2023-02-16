@@ -2,7 +2,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export enum FormType {
     LOGIN_FORM,
-    REGISTER_FORM
+    REGISTER_FORM,
+    LOGOUT
 }
 
 type AppState = {
